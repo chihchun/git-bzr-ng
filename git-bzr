@@ -674,6 +674,7 @@ def cmd_marks(args):
 COMMANDS = [
   ('init', 'init a new bzr branch', cmd_init),
   ('clone', 'clone a bzr repo', cmd_clone),
+  ('branch', 'clone a bzr repo', cmd_clone),
   ('clear', 'clear bzr data for a branch', cmd_clear),
   ('push', 'push to a bzr repo', cmd_push),
   ('sync', 'sync bzr tracking branch to remote', cmd_sync),
