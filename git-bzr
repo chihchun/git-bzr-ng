@@ -292,7 +292,6 @@ def export_git(branch, cl=None, parent_branch=None):
 
   git_marks = cl.map_dir('%s-git' % branch)
   bzr_marks = cl.map_dir('%s-bzr' % branch)
-
   # TODO(termie): sanity checks
   if os.path.exists(bzr_marks):
     # HACK: bzr fast-export seems to like to write out revno without the ':'
@@ -431,8 +430,8 @@ def cmd_push(args):
   (options, args) = parser.parse_args(args)
 
   cl = Changelist()
-
   # Ensure our directories exist
+  # TODO: delete old branch.
   init_repo(cl)
 
   upstream = None
@@ -678,6 +677,7 @@ COMMANDS = [
   ('clear', 'clear bzr data for a branch', cmd_clear),
   ('push', 'push to a bzr repo', cmd_push),
   ('sync', 'sync bzr tracking branch to remote', cmd_sync),
+  ('fetch', 'sync bzr tracking branch to remote', cmd_sync),
   ('pull', 'sync bzr tracking branch to remote and pull from it', cmd_pull),
   ('import', 'import a bzr branch as a new git branch', cmd_import),
   ('marks', 'show the marks files for a branch', cmd_marks),
